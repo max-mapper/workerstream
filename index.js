@@ -13,6 +13,12 @@ function WorkerStream(path) {
 
 util.inherits(WorkerStream, stream.Stream)
 
+module.exports = function(path) {
+  return new WorkerStream(path)
+}
+
+module.exports.WorkerStream = WorkerStream
+
 WorkerStream.prototype.workerMessage = function(e) {
   this.emit('data', e.data)
 }

@@ -1,20 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script type="text/javascript" src="domnode-bundle.js"></script>
-    <script type="text/javascript" src="index.js"></script>
     <title>DOMNode WebWorker</title>
   </head>
   <body>
-    <video id="video" autoplay="autoplay"></video>
-    <canvas id="display"></canvas>
-    <script type='text/javascript'>
-      var worker = new WorkerStream('demo-worker.js')
-      worker.on('data', function(data) {
-        console.log(data)
-      })
-      worker.write('this message went to the worker and back')
-      worker.end()
-    </script>
+    <script type="text/javascript" src="demo-bundle.js"></script>
   </body>
 </html>
