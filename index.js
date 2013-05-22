@@ -20,7 +20,7 @@ module.exports = function(path) {
 module.exports.WorkerStream = WorkerStream
 
 WorkerStream.prototype.workerMessage = function(e) {
-  this.emit('data', e.data)
+  this.emit('data', e.data, e)
 }
 
 WorkerStream.prototype.workerError = function(err) {
@@ -28,7 +28,7 @@ WorkerStream.prototype.workerError = function(err) {
 }
 
 WorkerStream.prototype.write = function(data) {
-  this.worker.postMessage(data)
+  this.worker.postMessage(data, [data])
   return true
 }
 

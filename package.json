@@ -1,9 +1,12 @@
 {
   "name": "workerstream",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "_npmUser": {
     "name": "maxogden",
     "email": "max@maxogden.com"
+  },
+  "scripts": {
+    "start": "beefy demo.js:demo-bundle.js demo-worker.js"
   },
   "dependencies": {},
   "devDependencies": {},

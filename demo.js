@@ -3,7 +3,9 @@ var workerstream = require('workerstream')
 var worker = workerstream('demo-worker.js')
 
 worker.on('data', function(data) {
-  console.log(data)
+  console.log(new Uint8Array(data))
 })
-worker.write('this message went to the worker and back')
+
+var ab = new ArrayBuffer( 10 );
+worker.write( ab )
 worker.end()
