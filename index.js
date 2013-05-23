@@ -28,7 +28,8 @@ WorkerStream.prototype.workerError = function(err) {
 }
 
 WorkerStream.prototype.write = function(data) {
-  this.worker.postMessage(data, [data])
+  if (data instanceof ArrayBuffer) this.worker.postMessage(data, [data])
+  else this.worker.postMessage(data)
   return true
 }
 
