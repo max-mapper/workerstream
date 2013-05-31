@@ -1,12 +1,35 @@
-# domnode-webworker
+# workerstream
 
     npm install workerstream
 
-use HTML5 [web workers](https://developer.mozilla.org/En/Using_web_workers) the node way -- with streams
+use HTML5 [web workers](https://developer.mozilla.org/En/Using_web_workers) with the node streams API
 
+    var workstream = require('workerstream')
     var worker = workerstream('my-worker.js')
 
 `worker` is a stream and speaks stream events: `data`, `error` and `end`. that means you can pipe worker output to anything that accepts streams, such as an XHR. you can also pipe data into workers (such as a webcam feed or audio data)
+
+## example
+
+in your app:
+
+```js
+var worker = workerstream('worker.js')
+worker.on('data', function(data) {
+  console.log(data)
+})
+worldWorker.on('error', function(e) { console.log('err', e)})
+worldWorker.write({ hello: 'world' })
+```
+
+the worker code (`worker.js` above):
+
+```
+self.onmessage = function(event) {
+  console.log(event.data)
+  self.postMessage({whats: 'up'})
+}
+```
 
 ## transferable objects
 

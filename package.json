@@ -1,21 +1,16 @@
 {
   "name": "workerstream",
-  "version": "1.0.0",
-  "_npmUser": {
-    "name": "maxogden",
-    "email": "max@maxogden.com"
-  },
+  "version": "1.0.1",
+  "description": "use HTML5 web workers with the node stream API",
   "scripts": {
     "start": "beefy demo.js:demo-bundle.js demo-worker.js"
   },
-  "dependencies": {},
-  "devDependencies": {},
-  "optionalDependencies": {},
-  "engines": {
-    "node": "*"
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/maxogden/workerstream.git"
   },
-  "_engineSupported": true,
-  "_npmVersion": "1.1.21",
-  "_nodeVersion": "v0.6.18",
-  "_defaultsLoaded": true
+  "author": "max ogden",
+  "license": "BSD",
+  "readmeFilename": "readme.md",
+  "gitHead": "4a95a44ec08edaa96cc458630193afbe6408944d"
 }
