@@ -27,9 +27,9 @@ WorkerStream.prototype.workerError = function(err) {
   this.emit('error', err)
 }
 
-WorkerStream.prototype.write = function(data) {
-  if (data instanceof ArrayBuffer) this.worker.postMessage(data, [data])
-  else this.worker.postMessage(data)
+// opts is for transferable objects
+WorkerStream.prototype.write = function(data, opts) {
+  this.worker.postMessage(data, opts)
   return true
 }
 
