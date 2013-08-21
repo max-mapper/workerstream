@@ -6,7 +6,9 @@ function WorkerStream(path) {
   stream.Stream.call(me)
   this.readable = true
   this.writable = true
-  me.worker = new Worker(path)
+  me.worker = typeof path === 'string'
+    ? new Worker(path)
+    : path
   me.worker.onmessage = me.workerMessage.bind(this)
   me.worker.onerror = me.workerError.bind(this)
 }
