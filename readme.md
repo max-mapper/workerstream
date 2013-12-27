@@ -30,7 +30,7 @@ self.onmessage = function(event) {
 }
 ```
 
-you can also pass in existing webworker instances, which is particularly useful for [https://npmjs.org/package/webworkify](webworkify)
+you can also pass in existing webworker instances, which is particularly useful for [webworkify](https://npmjs.org/package/webworkify)
 
 ## transferable objects
 
