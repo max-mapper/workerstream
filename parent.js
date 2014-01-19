@@ -8,7 +8,6 @@ function ParentStream(workerGlobal){
   this.parent = workerGlobal || self
   this.parent.onmessage = this.parentMessage.bind(this)
   this.parent.onerror = this.parentError.bind(this)
-  return parentStream
 }
 
 util.inherits(ParentStream, stream.Stream)
