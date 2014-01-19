@@ -30,7 +30,31 @@ self.onmessage = function(event) {
 }
 ```
 
-you can also pass in existing webworker instances, which is particularly useful for [webworkify](https://npmjs.org/package/webworkify)
+you can also pass in existing webworker instances
+
+
+## using with webworkify
+
+[webworkify](https://npmjs.org/package/webworkify) allows you to simply create browserified webworkers. 
+
+```js
+var WebWorkify = require('webworkify')
+var WorkerStream = require('workerstream')
+
+var worker = WebWorkify(require('./worker.js'))
+var workerStream = WorkerStream(worker)
+```
+
+Your `worker.js` can use this module's `ParentStream` to create a stream connecting back to the parent
+
+```js
+var ParentStream = require('workerstream/parent')
+
+module.exports = function(){
+  var parentStream = ParentStream()
+  parentStream.pipe(somewhereAwesome).pipe(parentStream)
+}
+```
 
 ## transferable objects
 
