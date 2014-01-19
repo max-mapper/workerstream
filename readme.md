@@ -38,14 +38,18 @@ you can also pass in existing webworker instances
 [webworkify](https://npmjs.org/package/webworkify) allows you to simply create browserified webworkers. 
 
 ```js
-var work = require('webworkify');
-var w = work(require('./worker.js'));
+var WebWorkify = require('webworkify')
+var WorkerStream = require('workerstream')
+
+var worker = WebWorkify(require('./worker.js'))
+var workerStream = WorkerStream(worker)
 ```
 
 Your `worker.js` can use this module's `ParentStream` to create a stream connecting back to the parent
 
 ```js
 var ParentStream = require('workerstream/parent')
+
 module.exports = function(){
   var parentStream = ParentStream()
   parentStream.pipe(somewhereAwesome).pipe(parentStream)
