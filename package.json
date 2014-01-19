@@ -1,6 +1,6 @@
 {
   "name": "workerstream",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "use HTML5 web workers with the node stream API",
   "scripts": {
     "start": "beefy demo.js:demo-bundle.js demo-worker.js",
