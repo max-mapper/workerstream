@@ -1,5 +1,5 @@
 var stream = require('stream')
-var util = require('util')
+var inherits = require('inherits');
 
 function WorkerStream(path) {
   stream.Stream.call(this)
@@ -12,7 +12,7 @@ function WorkerStream(path) {
   this.worker.onerror = this.workerError.bind(this)
 }
 
-util.inherits(WorkerStream, stream.Stream)
+inherits(WorkerStream, stream.Stream)
 
 module.exports = function(path) {
   return new WorkerStream(path)
