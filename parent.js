@@ -1,5 +1,5 @@
 var stream = require('stream')
-var util = require('util')
+var inherits = require('inherits');
 
 function ParentStream(workerGlobal){
   stream.Stream.call(this)
@@ -10,7 +10,7 @@ function ParentStream(workerGlobal){
   this.parent.onerror = this.parentError.bind(this)
 }
 
-util.inherits(ParentStream, stream.Stream)
+inherits(ParentStream, stream.Stream)
 
 module.exports = function(workerGlobal) {
   return new ParentStream(workerGlobal)
