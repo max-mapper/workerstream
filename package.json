@@ -19,6 +19,8 @@
     "webworkify": "~0.1.0"
   },
   "dependencies": {
-    "inherits": "^2.0.1"
+    "inherits": "^2.0.1",
+    "is-typedarray": "0.0.0",
+    "typedarray-to-buffer": "^3.0.1"
   }
 }

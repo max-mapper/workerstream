@@ -1,5 +1,7 @@
 var stream = require('stream')
 var inherits = require('inherits');
+var toBuffer = require('typedarray-to-buffer');
+var isTypedArray = require('is-typedarray');
 
 function ParentStream(workerGlobal){
   stream.Stream.call(this)
@@ -19,7 +21,9 @@ module.exports = function(workerGlobal) {
 module.exports.ParentStream = ParentStream
 
 ParentStream.prototype.parentMessage = function(e) {
-  this.emit('data', e.data, e)
+  var data = e.data;
+  if (isTypedArray(e.data) && !Buffer.isBuffer(data)) data = toBuffer(data);
+  this.emit('data', data, e)
 }
 
 ParentStream.prototype.parentError = function(err) {
